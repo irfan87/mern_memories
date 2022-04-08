@@ -7,12 +7,12 @@ import postRoutes from "./routes/posts.js";
 
 const app = express();
 
-// router
-app.use("/posts", postRoutes);
-
 app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
+
+// router
+app.use("/posts", postRoutes);
 
 const CONNECTION_URL = "mongodb://localhost:27017/memories";
 const PORT = process.env.PORT || 5000;
